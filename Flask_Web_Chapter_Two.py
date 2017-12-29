@@ -4,15 +4,17 @@
 from flask import Flask,render_template
 from flask_bootstrap import Bootstrap
 from flask_script import Manager
-
+from flask_moment import Moment
+from datetime import datetime
 app = Flask(__name__)
 manager = Manager(app)
 # 初始化Flask-Bootstrap
 bootstrap = Bootstrap(app)
+moment = Moment(app)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html',current_time = datetime.utcnow())
 
 '''
 Flask默认在程序文件夹中的templates子文件夹中寻找模板。

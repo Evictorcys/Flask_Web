@@ -4,6 +4,12 @@ title为html文档头，navbar，content分别表示页面导航条和主体内�
 
 {% extends "bootstrap/base.html" %}
 
+{% block head %}
+{{ super() }}
+<link rel = "shortcut icon" href = "{{ url_for('static',filename = 'web_logo.ico') }}" type = "image/x-icon">
+<link rel ="icon" href ="{{ url_for('static',filename = 'web_logo.ico') }}" type = "image/x-icon">
+{% endblock %}
+
 {% block title %}Evictor's Blog{% endblock %}
 
 {% block navbar %}
@@ -33,12 +39,14 @@ title为html文档头，navbar，content分别表示页面导航条和主体内�
 </div>
 {% endblock %}
 
-<!-- Flask-Bootstrap中base.html模板的所有可用块：
-     doc,html_attribs,html,head,title,metas,styles,body_attribs,body,navbar,content,scripts。
-     Note:若程序需要向已经有内容的块中添加新内容，必须使用super()函数。例如，添加新的JavaScript文件，重定义scripts块：
+<!-- 引入moment.js  -->
 {% block scripts %}
 {{ super() }}
-<script type = "text/javascript" src = "myscript.js"></script>
+{{ moment.include_moment() }}
 {% endblock %}
+
+<!-- Flask-Bootstrap中base.html模板的所有可用块：
+     doc,html_attribs,html,head,title,metas,styles,body_attribs,body,navbar,content,scripts。
+     Note:若程序需要向已经有内容的块中添加新内容，必须使用super()函数。例如，添加新的JavaScript文件，重定义scripts块
 -->
 
