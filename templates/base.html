@@ -1,0 +1,13 @@
+<!-- 基模板
+block标签定义的元素可在衍生模板中修改-->
+<html>
+<head>
+	{% block head  %}
+	<title>{% block title %}{% endblock %} - My Application</title>
+	{% endblock %}
+</head>
+<body>
+	{% block body %}
+	{% endblock %}
+</body> 
+</html>

@@ -1,0 +1,44 @@
+<!-- 继承Flask-Bootstrap中bootstrap/base.html，引入了Bootstrap中所有CSS和javascript文件。
+本模板重新定义了title,navbar,content三个块，
+title为html文档头，navbar，content分别表示页面导航条和主体内容-->
+
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Evictor's Blog{% endblock %}
+
+{% block navbar %}
+<div class = "navbar navbar-inverse" role = "navigation">
+	<div class = "container">
+		<div class = "navbar-header">
+			<button type = "button" class = "navbar-collapse">
+				<span class = "sr-only">Toggle navigation</span>
+				<span class = "icon-bar"></span>
+				<span class = "icon-bar"></span>
+				<span class = "icon-bar"></span>
+			</button>
+			<a class = "navbar-brand" href = "/">Evictor</a>
+		</div>
+		<div class = "navbar-collapse collapse">
+			<ul class = "nav navbar-nav">
+				<li><a href = '/'>Home</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class = "container">
+	{% block page_content %}{% endblock %}
+</div>
+{% endblock %}
+
+<!-- Flask-Bootstrap中base.html模板的所有可用块：
+     doc,html_attribs,html,head,title,metas,styles,body_attribs,body,navbar,content,scripts。
+     Note:若程序需要向已经有内容的块中添加新内容，必须使用super()函数。例如，添加新的JavaScript文件，重定义scripts块：
+{% block scripts %}
+{{ super() }}
+<script type = "text/javascript" src = "myscript.js"></script>
+{% endblock %}
+-->
+

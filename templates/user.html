@@ -1,0 +1,14 @@
+<h1>Hello,{{ name|title }}!</h1>
+<!-- {{ name }}结构表示一个变量。jinja2能识别所有类型的变量,甚至可以是列表、字典和对象。-->
+<p>A value from a dictionary:{{ mydict['key'] }}.</p>
+<p>A value from a list:{{ mylist[2] }}</p>
+<p>A value from a list,with a variable index:{{ mylist[myintvar] }}.</p>
+<p>A value from an object's method:{{ myobject.somemethod() }}.</p>
+<!-- Jinja2部分常用过滤器：
+     safe 渲染值时不转义，不用于不可信值，如用户输入；
+     capitalize 首字母大写，其他字母小写；
+     lower 把值转换为小写；
+     upper 把值转换为大写；
+     title 把每个单词的首字母转换为大写；
+     trim 把值的首位空格去掉；
+     striptags 渲染之前把值中所以html标签删掉-->
