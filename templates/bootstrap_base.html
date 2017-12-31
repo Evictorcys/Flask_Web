@@ -35,6 +35,14 @@ title为html文档头，navbar，content分别表示页面导航条和主体内�
 
 {% block content %}
 <div class = "container">
+	<!-- bootstrap_base.html 渲染Flash消息。-->
+	{% for message in get_flashed_messages() %}
+	<div class = "alert alert-warning">
+		<button type = "button" class="close" data-dismiss = "alert">&times;</button>
+		{{ message }}
+	</div>
+	{% endfor %}
+
 	{% block page_content %}{% endblock %}
 </div>
 {% endblock %}
