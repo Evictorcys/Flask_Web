@@ -10,4 +10,11 @@ name = StringField("What is your name?",validators = [Required])
 
 from flask_sqlalchemy import SQLAlchemy instead of
 from flask_sqlalchemy import SQLALchemy
+
+ImportError: No module named 'MySQLdb'
+Reason:python3
+SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://...' instead of
+SQLALCHEMY_DATABASE_URI = 'mysql://...'
+
+
 """
